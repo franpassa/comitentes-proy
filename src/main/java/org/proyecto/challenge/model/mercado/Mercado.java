@@ -1,12 +1,11 @@
-package org.proyecto.challenge.model;
+package org.proyecto.challenge.model.mercado;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.proyecto.challenge.model.pais.Pais;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Data
@@ -27,8 +26,4 @@ public class Mercado {
     @ManyToOne
     @JoinColumn(name = "pais_id", nullable = false)
     private Pais pais;
-
-    @ManyToMany(mappedBy = "mercados")
-    private Set<Comitente> comitentes = new HashSet<>();
-
 }

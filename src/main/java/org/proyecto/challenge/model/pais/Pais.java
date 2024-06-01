@@ -1,4 +1,4 @@
-package org.proyecto.challenge.model;
+package org.proyecto.challenge.model.pais;
 
 import lombok.*;
 
