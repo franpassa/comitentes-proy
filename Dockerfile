@@ -15,7 +15,7 @@ FROM openjdk:8-jre-slim
 WORKDIR /app
 
 # Copiar el JAR desde la etapa de construcción
-COPY --from=build /app/target/comitentes-proy-1.0-SNAPSHOT-jar.jar app.jar
+COPY --from=build /app/target/comitentes-proy-1.0-SNAPSHOT.jar app.jar
 
 # Exponer el puerto en el que tu aplicación Spring Boot está configurada para escuchar
 EXPOSE 8080
