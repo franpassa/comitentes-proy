@@ -1,1 +1,1 @@
-web: java -jar target/comitentes-jar.jar
+web: java -jar target/comitentes-proy.jar
