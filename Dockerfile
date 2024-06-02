@@ -4,7 +4,6 @@ WORKDIR /app
 
 # Definir las variables de entorno para la conexión a la base de datos
 ENV DATASOURCE_HOST=host.docker.internal
-ENV DATASOURCE_PORT=5432
 ENV DATASOURCE_NAME=comitentesdb
 ENV DATASOURCE_USER=admin
 ENV DATASOURCE_PASSWORD=Gr9qcAnJIPtjw6Vq6Raqv8J0Tl3hhhiV
