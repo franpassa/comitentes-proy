@@ -27,4 +27,4 @@ COPY --from=build /app/target/comitentes-proy-1.0-SNAPSHOT.jar app.jar
 EXPOSE 10000
 
 # Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Xmx256m", "-Xms256m", "-jar", "app.jar"]
