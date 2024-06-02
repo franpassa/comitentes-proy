@@ -3,11 +3,11 @@ FROM maven:3.8.1-openjdk-8-slim AS build
 WORKDIR /app
 
 # Definir las variables de entorno para la conexión a la base de datos
-ENV DATABASE_HOST=dpg-cpe8o4tds78s73esbcag-a
-ENV DATABASE_PORT=5432
-ENV DATABASE_NAME=comitentesdb
-ENV DATABASE_USER=admin
-ENV DATABASE_PASSWORD=Gr9qcAnJIPtjw6Vq6Raqv8J0Tl3hhhiV
+ENV DATASOURCE_HOST=dpg-cpe8o4tds78s73esbcag-a
+ENV DATASOURCE_PORT=5432
+ENV DATASOURCE_NAME=comitentesdb
+ENV DATASOURCE_USER=admin
+ENV DATASOURCE_PASSWORD=Gr9qcAnJIPtjw6Vq6Raqv8J0Tl3hhhiV
 
 # Copiar el pom.xml y descargar las dependencias
 COPY pom.xml .
