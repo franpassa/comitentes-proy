@@ -1,0 +1,22 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Render CLI
+        run: |
+          curl -o /tmp/render https://render.com/download/linux/render
+          chmod +x /tmp/render
+          sudo mv /tmp/render /usr/local/bin/render
+
+      - name: Deploy to Render
+        run: render deploy -- --force-build
