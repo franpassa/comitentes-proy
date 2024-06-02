@@ -5,7 +5,7 @@ FROM openjdk:8-jre-slim
 WORKDIR /app
 
 # Copiar el JAR de la aplicación al contenedor
-COPY target/comitentes-proy-jar.jar app.jar
+COPY target/comitentes-proy-1.0-SNAPSHOT.jar app.jar
 
 # Exponer el puerto en el que tu aplicación Spring Boot está configurada para escuchar
 EXPOSE 8080
