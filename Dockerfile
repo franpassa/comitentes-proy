@@ -3,7 +3,7 @@ FROM maven:3.8.1-openjdk-8-slim AS build
 WORKDIR /app
 
 # Definir las variables de entorno para la conexión a la base de datos
-ENV DATASOURCE_HOST=dpg-cpe8o4tds78s73esbcag-a
+ENV DATASOURCE_HOST=host.docker.internal
 ENV DATASOURCE_PORT=5432
 ENV DATASOURCE_NAME=comitentesdb
 ENV DATASOURCE_USER=admin
