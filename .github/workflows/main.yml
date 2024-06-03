@@ -12,12 +12,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install Render CLI
+      - name: Create Local Bin Directory
         run: |
           mkdir -p $HOME/bin
+          echo "Directory created: $HOME/bin"
+        shell: bash
+
+      - name: Install Render CLI
+        run: |
           curl -Ls https://github.com/render-oss/render-cli/archive/refs/tags/v0.1.11.tar.gz -o render-cli-0.1.11.tar.gz
           tar -xzf render-cli-0.1.11.tar.gz -C $HOME/bin
-          ls -al $HOME/bin/render
+          echo "Render CLI extracted to $HOME/bin"
+          ls -al $HOME/bin
           rm render-cli-0.1.11.tar.gz
         shell: bash
 
