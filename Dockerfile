@@ -24,7 +24,7 @@ WORKDIR /app
 COPY --from=build /app/target/comitentes-proy-1.0-SNAPSHOT.jar app.jar
 
 # Exponer el puerto en el que tu aplicación Spring Boot está configurada para escuchar
-EXPOSE 10000
+EXPOSE 8080
 
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-Xmx256m", "-Xms256m", "-jar", "app.jar"]
