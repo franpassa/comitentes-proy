@@ -3,7 +3,7 @@ INSERT INTO comitentes_schema.pais (nombre) VALUES ('Argentina');
 INSERT INTO comitentes_schema.pais (nombre) VALUES ('Uruguay');
 
 -- Inserto mercados
-INSERT INTO comitentes_schema.mercado (codigo, descripcion, pais_id) VALUES ('DEC', 'DECRYPT', 1);
+INSERT INTO comitentes_schema.mercado (codigo, descripcion, pais_id) VALUES ('DEC', 'DECRYPTO', 1);
 INSERT INTO comitentes_schema.mercado (codigo, descripcion, pais_id) VALUES ('BIN', 'BINANCE', 2);
 INSERT INTO comitentes_schema.mercado (codigo, descripcion, pais_id) VALUES ('TOT', 'TOTAL', 2);
 INSERT INTO comitentes_schema.mercado (codigo, descripcion, pais_id) VALUES ('PET', 'PETROBRAS', 1);
