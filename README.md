@@ -61,7 +61,7 @@ Para poder ejecutar la aplicación localmente son necesarios los siguientes requ
    ```bash
    https://comitentes-proy.onrender.com/swagger-ui/index.html
 
-- Nota: Es posible que al intentar acceder a la web luego de no haber ingresado por un tiempo prolongado, no responda inmediatamente
+- **Nota:** Es posible que al intentar acceder a la web luego de no haber ingresado por un tiempo prolongado, no responda inmediatamente
 debido a que es una de las características del free-tier utilizado en el despliegue de la aplicación. En ese caso, reintentar hasta que cargue.
 El free-tier, proporciona mayor velocidad a mayor uso de la aplicación pero reduce los recursos considerablemente cuando no está en uso.
    
