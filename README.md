@@ -56,7 +56,13 @@ Para poder ejecutar la aplicación localmente son necesarios los siguientes requ
 
 ## Uso de aplicación desplegada en Render
 
-   **La aplicación estará disponible en la siguiente url:**
+   **La aplicación se encuentra disponible en la siguiente url:**
 
    ```bash
    https://comitentes-proy.onrender.com/swagger-ui/index.html
+
+   Nota: Es posible que al intentar acceder a la web luego de no haber ingresado por un tiempo prolongado, no responda inmediatamente
+   la url debido a que es una de las características del free-tier utilizado en el despliegue de la aplicación.
+   En ese caso, reintentar hasta que cargue. El free-tier, proporciona mayor velocidad a mayor uso de la aplicación pero baja los
+   recursos considerablemente cuando no está en uso.
+   
