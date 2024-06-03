@@ -56,8 +56,7 @@ Para poder ejecutar la aplicación localmente son necesarios los siguientes requ
 
 ## Uso de aplicación desplegada en Render
 
-- **Nota:** Es posible que al intentar acceder a la web luego de no haber ingresado por un tiempo prolongado, no responda inmediatamente
-debido a que es una de las características del free-tier utilizado en el despliegue de la aplicación. En ese caso, reintentar hasta que cargue.
+- **Nota:** Luego de no usarse por mucho tiempo, la aplicación entra en stand-by, por lo tanto, hay que esperar a que el servidor responda por primera vez, esto puede demorar hasta 2 minutos.
 El free-tier, proporciona mayor velocidad a mayor uso de la aplicación pero reduce los recursos considerablemente cuando no está en uso.
 
 **La aplicación se encuentra disponible en la siguiente url:**
