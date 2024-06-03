@@ -14,18 +14,21 @@ jobs:
 
       - name: Install Render CLI
         run: |
+          mkdir -p $HOME/bin
           curl -Ls https://github.com/render-oss/render-cli/archive/refs/tags/v0.1.11.tar.gz -o render-cli-0.1.11.tar.gz
-          tar -xzf render-cli-0.1.11.tar.gz -C /usr/local/bin
+          tar -xzf render-cli-0.1.11.tar.gz -C $HOME/bin
+          ls -al $HOME/bin/render
           rm render-cli-0.1.11.tar.gz
         shell: bash
 
       - name: Verify Render CLI Installation
-        run: /usr/local/bin/render --version
+        run: |
+          $HOME/bin/render --version
         shell: bash
 
       - name: Deploy to Render
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-          /usr/local/bin/render deploy --force-build
+          $HOME/bin/render deploy --force-build
         shell: bash
