@@ -45,11 +45,11 @@ Para poder ejecutar la aplicación localmente son necesarios los siguientes requ
 4. **Ejecutar la aplicación Spring Boot::**
 
    ```bash
-  java -jar target/comitentes-app-1.0-SNAPSHOT.jar
+   java -jar target/comitentes-app-1.0-SNAPSHOT.jar
 
 5. **Acceder a la aplicación por el navegador web::**
    
    - La aplicación estará disponible en la siguiente url:
 
    ```bash
-  http://localhost:8080/swagger-ui/index.html
+   http://localhost:8080/swagger-ui/index.html
