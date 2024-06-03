@@ -56,7 +56,7 @@ Para poder ejecutar la aplicación localmente son necesarios los siguientes requ
 
 ## Uso de aplicación desplegada en Render
 
-- **Nota:** Luego de no usarse por mucho tiempo, la aplicación entra en stand-by, por lo tanto, hay que esperar a que el servidor responda por primera vez, esto puede demorar hasta 2 minutos.
+- **Nota:** Luego de no usarse por mucho tiempo, la aplicación entra en stand-by, por lo tanto, hay que esperar a que el servidor responda por primera vez, esto puede demorar hasta 3 minutos.
 El free-tier, proporciona mayor velocidad a mayor uso de la aplicación pero reduce los recursos considerablemente cuando no está en uso.
 
 **La aplicación se encuentra disponible en la siguiente url:**
