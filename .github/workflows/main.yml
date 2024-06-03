@@ -27,11 +27,6 @@ jobs:
           rm render-cli-0.1.11.tar.gz
         shell: bash
 
-      - name: Verify Render CLI Installation
-        run: |
-          $HOME/bin/render --version
-        shell: bash
-
       - name: Deploy to Render
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
