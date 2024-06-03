@@ -32,22 +32,22 @@ Para poder ejecutar la aplicación localmente son necesarios los siguientes requ
    ```bash
    git clone https://github.com/tu_usuario/comitentes-app.git
 
-2. **Navegar al directorio del proyecto::**
+2. **Navegar al directorio del proyecto:**
 
    ```bash
    cd comitentes-app
 
-3. **Compilar proyecto utilizando Maven::**
+3. **Compilar proyecto utilizando Maven:**
 
    ```bash
    mvn clean package
 
-4. **Ejecutar la aplicación Spring Boot::**
+4. **Ejecutar la aplicación Spring Boot:**
 
    ```bash
    java -jar target/comitentes-app-1.0-SNAPSHOT.jar
 
-5. **Acceder a la aplicación por el navegador web::**
+5. **Acceder a la aplicación por el navegador web:**
    
    - La aplicación estará disponible en la siguiente url:
 
