@@ -14,9 +14,9 @@ jobs:
 
       - name: Install Render CLI
         run: |
-          curl -o /tmp/render https://render.com/download/linux/render
-          chmod +x /tmp/render
-          sudo mv /tmp/render /usr/local/bin/render
+          curl -Ls https://github.com/render-oss/render-cli/archive/refs/tags/v0.1.11.tar.gz -o render-cli-0.1.11.tar.gz
+          tar -xzf render-cli-0.1.11.tar.gz -C /usr/local/bin
+          rm render-cli-0.1.11.tar.gz
 
       - name: Deploy to Render
         run: render deploy -- --force-build
