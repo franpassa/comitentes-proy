@@ -1,5 +1,6 @@
 package org.proyecto.challenge.service;
 
+import org.proyecto.challenge.model.comitente.Comitente;
 import org.proyecto.challenge.model.mercado.Mercado;
 import org.proyecto.challenge.model.pais.Pais;
 import org.proyecto.challenge.model.estadisticas.EstadisticaPais;
@@ -13,7 +14,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,6 +31,43 @@ public class EstadisticasService {
     @Autowired
     private MercadoRepository mercadoRepository;
 
+    public List<EstadisticaPais> getEstadisticas() {
+        // Busco comitentes y mercados a la base de datos
+        List<Comitente> comitentes = comitenteRepository.findAll();
+        List<Mercado> mercados = mercadoRepository.findAll();
+
+        // Mapeo por pais para hacer mas eficiente la busqueda
+        Map<Long, List<Mercado>> mercadosPorPaisMap = mercados.stream()
+                .collect(Collectors.groupingBy(mercado -> mercado.getPais().getId()));
+
+        // Calculo el número total de comitentes
+        long numeroFinalComitentes = comitentes.size();
+
+        // Calculo las estadísticas para cada país
+        return paisRepository.findAll().stream().map(pais -> {
+
+                    List<Mercado> mercadosPorPais = mercadosPorPaisMap.getOrDefault(pais.getId(), Collections.emptyList());
+
+                    List<EstadisticaMercado> estadisticasMercados = mercadosPorPais.stream().map(mercado -> {
+
+                                // Se podría haber hecho mas facil si se agregaba la lista de comitentes en el mercado, pero lo dejé así.
+                                long cantComitentesDelMercado = comitentes.stream()
+                                        .filter(comitente -> comitente.getMercados().contains(mercado))
+                                        .count();
+
+                                // Calculo porcentaje
+                                double porcentaje = (cantComitentesDelMercado * 100.0) / numeroFinalComitentes;
+
+                                BigDecimal porcentajeRedondeado = BigDecimal.valueOf(porcentaje).setScale(2, RoundingMode.HALF_UP);
+
+                                return new EstadisticaMercado(mercado.getCodigo(), porcentajeRedondeado);
+
+                            }).collect(Collectors.toList());
+
+                    return new EstadisticaPais(pais.getNombre(), estadisticasMercados);}).collect(Collectors.toList());
+    }
+
+    /*
     public List<EstadisticaPais> getEstadisticas() {
         List<EstadisticaPais> estadisticas = new ArrayList<>();
 
@@ -65,5 +105,7 @@ public class EstadisticasService {
         }
 
         return estadisticas;
-    }
+    }*/
+
+
 }
