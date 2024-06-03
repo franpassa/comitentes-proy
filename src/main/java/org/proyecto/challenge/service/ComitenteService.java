@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class ComitenteService {
@@ -41,8 +40,30 @@ public class ComitenteService {
 
     public Comitente updateComitente(ActualizarComitenteDTO comitenteDTO) throws Exception {
         Comitente comitente = comitenteRepository.findById(comitenteDTO.getIdComitente()).orElseThrow(() -> new Exception("Comitente no encontrado."));
-
         comitente.setDescripcion(comitenteDTO.getDescripcion());
+
+        if (this.existsByDescripcionAndIdNot(comitente.getDescripcion(), comitente.getId())) {
+            throw new Exception("Ya existe otro comitente con esa descripcion.");
+        }
+
+        Set<Mercado> mercados = new HashSet<>();
+        for (Long mercadoId : comitenteDTO.getIdMercados()) {
+            Mercado mercado = mercadoRepository.findById(mercadoId)
+                    .orElseThrow(() -> new Exception("Mercado no encontrado."));
+            mercados.add(mercado);
+        }
+        comitente.setMercados(mercados);
+
+        return this.save(comitente);
+    }
+
+    public Comitente crearComitente(CrearComitenteDTO comitenteDTO) throws Exception {
+        Comitente comitente = new Comitente();
+        comitente.setDescripcion(comitenteDTO.getDescripcion());
+
+        if (this.existsByDescripcion(comitente.getDescripcion())) {
+            throw new Exception("Ya existe otro comitente con esa descripcion.");
+        }
 
         Set<Mercado> mercados = new HashSet<>();
         for (Long mercadoId : comitenteDTO.getIdMercados()) {
@@ -55,18 +76,11 @@ public class ComitenteService {
         return comitenteRepository.save(comitente);
     }
 
-    public Comitente crearComitente(CrearComitenteDTO comitenteDTO) throws Exception {
-        Comitente comitente = new Comitente();
-        comitente.setDescripcion(comitenteDTO.getDescripcion());
+    public boolean existsByDescripcion(String descripcion) {
+        return comitenteRepository.existsByDescripcion(descripcion);
+    }
 
-        Set<Mercado> mercados = new HashSet<>();
-        for (Long mercadoId : comitenteDTO.getIdMercados()) {
-            Mercado mercado = mercadoRepository.findById(mercadoId)
-                    .orElseThrow(() -> new Exception("Mercado no encontrado."));
-            mercados.add(mercado);
-        }
-        comitente.setMercados(mercados);
-
-        return comitenteRepository.save(comitente);
+    private boolean existsByDescripcionAndIdNot(String descripcion, Long id) {
+        return comitenteRepository.existsByDescripcionAndIdNot(descripcion, id);
     }
 }

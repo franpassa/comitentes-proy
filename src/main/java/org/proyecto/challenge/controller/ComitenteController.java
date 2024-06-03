@@ -34,6 +34,11 @@ public class ComitenteController {
     @PostMapping("/crearComitente")
     public ResponseEntity<Object> crearComitente(@RequestBody CrearComitenteDTO comitente) {
         try {
+            // Verificar si el comitente ya existe antes de crearlo
+            if (comitenteService.existsByDescripcion(comitente.getDescripcion())) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El comitente ya existe.");
+            }
+
             Comitente comitenteCreado = comitenteService.crearComitente(comitente);
             return ResponseEntity.ok(comitenteCreado);
         } catch (Exception e) {
